@@ -1,0 +1,18 @@
+#/etc/systemd/system
+[Unit]
+Description=Backup Daemon Service
+After=network.target
+
+[Service]
+ExecStart=/opt/backup_daemon/backup_daemon start /opt/backup_daemon/backup_config.ini
+ExecStop=/opt/backup_daemon/backup_daemon stop
+ExecReload=/opt/backup_daemon/backup_daemon restart
+Restart=always
+PIDFile=/var/run/backup_daemon.pid
+WorkingDirectory=/opt/backup_daemon
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target
+

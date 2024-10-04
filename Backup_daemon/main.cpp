@@ -23,10 +23,10 @@ std::string pidFilePath = "/var/run/backup_daemon.pid";
 
 int createBackup(const std::string& sourceDir, const std::string& backupDir) {
     time_t now = time(nullptr);
-    char timestamp[20];
-    strftime(timestamp, sizeof(timestamp), "%Y%m%d%H%M%S", localtime(&now));
+    char timeStamp[20];
+    strftime(timeStamp, sizeof(timeStamp), "%Y%m%d%H%M%S", localtime(&now));
 
-    std::string destination = backupDir + "/backup_" + timestamp;
+    std::string destination = backupDir + "/backup_" + timeStamp;
 
     if (mkdir(destination.c_str(), 0755) != 0 && errno != EEXIST) {
         syslog(LOG_ERR, "Failed to create backup directory: %s", strerror(errno));

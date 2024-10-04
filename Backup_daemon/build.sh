@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #/opt/backup_daemon
 
 export LANG=en_US.UTF-8
@@ -18,11 +19,3 @@ cd $BUILD_FOLDER
 cmake -G "$BUILD_TYPE" ..
 
 cmake --build .
-
-if [ -f "../$CONFIG_FILE" ]; then
-    cp "../$CONFIG_FILE" .
-    echo "$CONFIG_FILE скопирован в папку сборки."
-else
-    echo "$CONFIG_FILE не найден!"
-fi
-

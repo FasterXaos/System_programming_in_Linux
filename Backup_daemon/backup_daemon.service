@@ -1,4 +1,3 @@
-#/etc/systemd/system
 [Unit]
 Description=Backup Daemon Service
 After=network.target

@@ -16,6 +16,15 @@
 #include <thread>
 #include <unistd.h>
 
+int createBackup(const std::string& sourceDir, const std::string& backupDir);
+void daemonLoop(const std::string& configPath);
+void getStatus();
+void readConfig(const std::string& filePath);
+int readPIDFromFile();
+void savePIDToFile()
+void startDaemon();
+void stopDaemon();
+
 std::map<std::string, std::string> config;
 bool isDaemonRunning = false;
 std::string configPath = "/opt/backup_daemon/backup_config.ini";
